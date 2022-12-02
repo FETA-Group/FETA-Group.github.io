@@ -61,7 +61,8 @@ fetch(`https://cors-anywhere.herokuapp.com/https://api.211.org/search/v1/api/Sea
         // Request headers
         headers: {
             'Cache-Control': 'no-cache',
-            'Api-Key': '8681f8e51ffb4e1bb89ab9dad911397c',}
+            'Api-Key': '8681f8e51ffb4e1bb89ab9dad911397c',
+            'Content-Type': 'application/json'}
     })
     .then(response => {
         return response.json();   
