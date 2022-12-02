@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <link rel="stylesheet" href="/stylesheets/mainStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/images/main_fav_cir.png" type="image/x-icon">
+    <script src="/source code/volunteerRes.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <title>Give Help</title>
+      </head>
+
+  
+  <body>
+
+    <!--Want to Help Options-->
+    <div id="givehelpBackground" class="givehelpBackground">
+      <div id="givehelpList"  class="givehelpList">
+        <img src="/images/name_fav_cir.png" style="width: 100px; height: 100px;">
+        <h3 style="color:red">WE APPRECIATE ALL THAT YOU DO.</h3>
+        <div class="topnav">
+          <div id="myLinks" class="myLinks">
+              <a href="/index.html">Home |</a>
+              <a href="/html pages/resOpt.html">Shelter |</a>
+              <a href="/html pages/foodRes.html">Food |</a>
+              <a href="/html pages/healthRes.html">Medical |</a>
+              <a href="/html pages/employRes.html">Jobs |</a>
+              <a href="/html pages/volunteerRes.html">Volunteer|</a>
+              <a href="/html pages/aboutUs.html">About Us |</a>
+              <a href="/html pages/contact.html">Contact |</a>
+          </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars" style="font-size:50px;" ></i>
+      </a>
+      </div>
+        </div>
+      <div id="giveResource"  class="giveResource">
+        <h1>Volunteer</h1>
+        <h4>The most valuable resource we can offer is our time.  Submit your zip code to find places to volunteer a little bit of your time.</h4>
+        <input type="text" id="volZip" class="volZip" onfocus="this.value=''" placeholder="Enter Your Zip Code" style="text-align: center"><br>
+        <button type="button" id="volzipSubmit" class="volzipSubmit" onclick="validateResVol()">Submit</button>
+      </div>
+      <div id="giveResource"  class="giveResource">
+        <h1>Report a Hot Zone</h1>
+        <h4>If you are in an area where there are lots of unhoused persons.  Click button to drop your coordinates.</h4>
+        <button id="dropLocPin" class="dropLocPin" onclick="getLocation()">Drop A Pin</button>
+        <p id="latlongconfirm"></p>
+        <p id="latlong"></p>
+        <!--<button type="button" id="dropLocPin" class="dropLocPin"><a href="http://www.geoplugin.net/javascript.gp">Drop A Pin</button></a>-->
+      </div>
+      <div id="giveResource" class="giveResource">
+        <h4>Homelessness is a worldwide problem.  Monetary contributions are greatly appreciated.</h4>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="5QCPA8PWQTNLS" />
+          <input type="image" id="donateImg" src="https://pics.paypal.com/00/s/NjJjYjMyNDQtMTQ1NC00NTg2LWIzMTktNWE5MjhlOWUyMDQz/file.PNG" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+          <img alt="Donate Button" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" />
+          </form>
+      </div>
+    </div>   
+    <script>
+      var latlong = document.getElementById("latlong");
+      var latlongconfirm = document.getElementById("latlongconfirm");
+            
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+          latlong.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+      
+      function showPosition(position) {
+        latlongconfirm.innerHTML = "You reported the following location:<br>"
+        latlong.innerHTML = 
+        "Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude;  
+       
+        navigator.geolocation.getCurrentPosition(function(p){
+      localStorage.setItem("Lat: " + p.coords.latitude, "Long: " + p.coords.longitude);
+      })
+      }
+     
+   
+      </script>
+  </body>
+</html>

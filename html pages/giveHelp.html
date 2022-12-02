@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <link rel="stylesheet" href="/stylesheets/mainStyle.css">
+    <link rel="icon" href="/images/main_fav_cir.png" type="image/x-icon">
+    <script src="/source code/giveHelp.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <title>Give Help</title>
+      </head>
+
+  
+  <body>
+
+    <!--Want to Help Options-->
+    <div id="givehelpBackground" class="givehelpBackground">
+      <div id="givehelpList"  class="givehelpList">
+        <img src="/images/name_fav_cir.png" style="width: 100px; height: 100px;">
+        <h3 style="color:red">WE APPRECIATE ALL THAT YOU DO.</h3>
+        </div>
+      <div id="giveResource"  class="giveResource">
+        <h1><a href="/html pages/volDisplay.html">Volunteer</a></h1>
+        <h4>The most valuable resource we can offer is our time.  Submit your zip code to find places to volunteer a little bit of your time.</h4>
+        <input type="text" id="volZip" class="volZip" onfocus="this.value=''" placeholder="Enter Your Zip Code" style="text-align: center"><br>
+        <button type="button" id="volzipSubmit" class="volzipSubmit" onclick="validateVol()">Submit</button>
+        <div id="volzipValidate" class="volzipValidate"></div>
+      </div>
+      <div id="giveResource"  class="giveResource">
+        <h1><a href="/html pages/pinConfirm.html">Report a Hot Zone</a></h1>
+        <h4>If you are in an area where there are lots of unhoused persons.  Click button to drop your coordinates.</h4>
+        <button type="button" id="dropLocPin" class="dropLocPin"><a href="http://www.geoplugin.net/javascript.gp">Drop A Pin</button></a>
+      </div>
+      <div id="giveResource" class="giveResource">
+        <h4>Homelessness is a worldwide problem.  Monetary contributions are greatly appreciated.</h4>
+        <form action="https://www.paypal.com/donate" method="post" target="_top">
+          <input type="hidden" name="hosted_button_id" value="5QCPA8PWQTNLS" />
+          <input type="image" id="donateImg" src="https://pics.paypal.com/00/s/NjJjYjMyNDQtMTQ1NC00NTg2LWIzMTktNWE5MjhlOWUyMDQz/file.PNG" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+          <img alt="Donate Button" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" />
+          </form>
+      </div>
+    </div>   
+  
+   
+  </body>
+</html>
