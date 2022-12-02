@@ -56,7 +56,7 @@ document.querySelector('zipCodeShelter').onsubmit = e => {
 
 let zipCode = window.location.search.slice(5);
 
-fetch(`https://cors-anywhere.herokuapp.com/https://api.211.org/search/v1/api/Search/Keyword?Keyword=Homeless%20Shelter&Location=${zipCode}&Distance=1000&Top=100 HTTP/1.1`
+fetch(`https://cors-anywhere.herokuapp.com/https://api.211.org/search/v1/api/Search/Keyword?Keyword=homeless%20shelter%20men&Location=${zipCode}&Distance=100&Top=100 HTTP/1.1`
 , {
         method: 'GET',
         // Request headers
