@@ -41,7 +41,7 @@ let zipCode = window.location.search.slice(5);
 
 (function() {
   var cors_api_host = 'cors-anywhere.herokuapp.com';
-  var cors_api_url = 'https://' + cors_api_host + `/https://api.211.org/search/v1/api/Search/Keyword?Keyword=homeless%20shelter%20men&Location=${zipCode}&Distance=100&Top=100 HTTP/1.1`;
+  var cors_api_url = `https://${cors_api_host}/https://api.211.org/search/v1/api/Search/Keyword?Keyword=homeless%20shelter%20men&`;
   var slice = [].slice;
   var origin = window.location.protocol + '//' + window.location.host;
   var open = XMLHttpRequest.prototype.open;
@@ -56,7 +56,7 @@ let zipCode = window.location.search.slice(5);
   };
 
 
-fetch("cors_api_url"
+fetch(`${cors_api_url}Location=${zipCode}&Distance=100&Top=100 HTTP/1.1`
 , {
         method: 'GET',
         // Request headers
