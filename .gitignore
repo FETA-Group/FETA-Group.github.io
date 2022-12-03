@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 obsolete
+proxyserver
 
 # Editor directories and files
 .vscode/*

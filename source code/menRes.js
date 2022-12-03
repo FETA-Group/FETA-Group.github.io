@@ -37,9 +37,11 @@ document.querySelector('zipCodeShelter').onsubmit = e => {
 };
 }
 
+let zipCode = window.location.search.slice(5);
+
 (function() {
   var cors_api_host = 'cors-anywhere.herokuapp.com';
-  var cors_api_url = 'https://' + cors_api_host + '/';
+  var cors_api_url = 'https://' + cors_api_host + `/https://api.211.org/search/v1/api/Search/Keyword?Keyword=homeless%20shelter%20men&Location=${zipCode}&Distance=100&Top=100 HTTP/1.1`;
   var slice = [].slice;
   var origin = window.location.protocol + '//' + window.location.host;
   var open = XMLHttpRequest.prototype.open;
@@ -52,11 +54,9 @@ document.querySelector('zipCodeShelter').onsubmit = e => {
       }
       return open.apply(this, args);
   };
-})();
 
-let zipCode = window.location.search.slice(5);
 
-fetch(`https://cors-anywhere.herokuapp.com/https://api.211.org/search/v1/api/Search/Keyword?Keyword=homeless%20shelter%20men&Location=${zipCode}&Distance=100&Top=100 HTTP/1.1`
+fetch(cors_api_url
 , {
         method: 'GET',
         // Request headers
@@ -80,3 +80,5 @@ fetch(`https://cors-anywhere.herokuapp.com/https://api.211.org/search/v1/api/Sea
           }
       })
       .catch(err => console.error(err))
+
+    })();
