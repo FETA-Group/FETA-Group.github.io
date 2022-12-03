@@ -56,7 +56,7 @@ let zipCode = window.location.search.slice(5);
   };
 
 
-fetch(cors_api_url
+fetch("cors_api_url"
 , {
         method: 'GET',
         // Request headers
