@@ -65,6 +65,7 @@ fetch(`${cors_api_url}Location=${zipCode}&Distance=100&Top=100 HTTP/1.1`
             'Api-Key': '8681f8e51ffb4e1bb89ab9dad911397c',
           }
     })
+  
     .then(response => {
         return response.json();   
       }).then(data => {

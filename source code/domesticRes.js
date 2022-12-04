@@ -52,12 +52,31 @@ document.querySelector('zipCodeShelter').onsubmit = e => {
 
 let zipCode = window.location.search.slice(5);
 
-fetch(`https://api.211.org/search/v1/api/Search/Keyword?Keyword=Domestic%20Violence%20Shelters&Location=${zipCode}&Distance=100&Top=100 HTTP/1.1`, {
+(function() {
+  var cors_api_host = 'cors-anywhere.herokuapp.com';
+  var cors_api_url = `https://${cors_api_host}/https://api.211.org/search/v1/api/Search/Keyword?Keyword=homeless%20shelter%20men&`;
+  var slice = [].slice;
+  var origin = window.location.protocol + '//' + window.location.host;
+  var open = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function() {
+      var args = slice.call(arguments);
+      var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
+      if (targetOrigin && targetOrigin[0].toLowerCase() !== origin &&
+          targetOrigin[1] !== cors_api_host) {
+          args[1] = cors_api_url + args[1];
+      }
+      return open.apply(this, args);
+  };
+
+
+fetch(`${cors_api_url}Location=${zipCode}&Distance=100&Top=100 HTTP/1.1`
+, {
         method: 'GET',
         // Request headers
         headers: {
             'Cache-Control': 'no-cache',
-            'Api-Key': '8681f8e51ffb4e1bb89ab9dad911397c',}
+            'Api-Key': '8681f8e51ffb4e1bb89ab9dad911397c',
+          }
     })
     .then(response => {
         return response.json();   
@@ -74,5 +93,5 @@ fetch(`https://api.211.org/search/v1/api/Search/Keyword?Keyword=Domestic%20Viole
           }
       })
       .catch(err => console.error(err));
-
+    })();
       
