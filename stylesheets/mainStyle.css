@@ -263,7 +263,7 @@ div:not(:empt){
 
 }
 #volListCard{
-    Background-color: white;
+    background-color: white;
     max-width: 100vmax;
     min-height: auto;
     width: 480px;
@@ -396,7 +396,7 @@ a:active{
     margin-bottom: 10px;
 }
 #ourTeam{
-    Background-color: white;
+    background-color: white;
     display: flexbox;
     justify-content: center ;
     width: 480px;
@@ -406,7 +406,7 @@ a:active{
     padding-left: 20%;
 }
 #ourUsers{
-    Background-color: white;
+    background-color: white;
     display: flexbox;
     justify-content: center ;
     width: 480px;
