@@ -62,3 +62,33 @@
                   }
               })
               .catch(err => console.error(err));
+
+              function getLocation(){
+                navigator.geolocation.getCurrentPosition(position => {
+                    const { latitude, longitude } = position.coords;
+                    // Show a map centered at latitude / longitude.
+                    console.log(latitude, longitude)
+                
+                
+                fetch(`https://api.tomtom.com/search/2/reverseGeocode/crossStreet/${latitude},${longitude}.json?limit=1&spatialKeys=false&radius=1000&allowFreeformNewLine=false&view=Unified&key=xAGbHwGXU5oEkVCjWEElRbGG19JGseH4`)
+                
+                    .then(response => {
+                        return response.json();   
+                      }).then(data => {
+                          console.log(data.addresses);
+                          for (const entry of data.addresses)
+                    {
+                        console.log(entry.address.streetName)
+                        console.log(entry.position)
+                        var volDisplay = document.getElementById("pinDrop2");
+                        var div = document.createElement("crossStreet");
+                        volDisplay.innerHTML = `<p style="color:green; text-align:center;">Lat and Long: <span><h4 style="color:black; text-align:center; font-size:smaller;">${entry.position}</h4></span></p><p style="color:green; text-align:center;">Cross Street: <span><h4 style="color:black; text-align:center; font-size:smaller;">${entry.address.streetName}</h4></span></p>`
+                        volDisplay.appendChild(div);
+                    }
+                }).catch(function (err) {
+                  // There was an error
+                  console.warn('Something went wrong.', err);
+                });
+                  
+                });
+                }      
