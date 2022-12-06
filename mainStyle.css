@@ -193,6 +193,11 @@ input{
 #zipCodeShelter{
     margin-left: 150px;
 }
+
+#zipCodeFood{
+    margin-left: 150px;
+}
+
 #sendzip{
     margin-left: -40px;
 }
